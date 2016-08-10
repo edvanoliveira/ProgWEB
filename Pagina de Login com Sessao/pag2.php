@@ -1,0 +1,36 @@
+<?php  
+
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+	unset($_SESSION['login']);
+	unset($_SESSION['senha']);
+	header('location:index.php');
+	}
+
+$logado = $_SESSION['login'];
+?>
+<html>
+<head>
+<title>Minha primeira página</title>
+<meta charset="utf-8">
+</head>
+<body>
+
+<h1>Este é um grande cabeçalho</h1>
+<h3>E este aqui é um pequeno cabeçalho</h3>
+<div>Aqui eu coloquei um parágrafo com algum texto aleatório, e a seguir vou inserir um formulário dentro de uma tabela. Além disso, aqui vai um link: <a href="http://icomp.ufam.edu.br/david">http://icomp.ufam.edu.br/david</a></div>
+<form action="conexao.php" method="post">
+<table>
+<tr><td><div>Seu nome</td><td><input type="text" name="nome" id="nome"/></div></td></tr>
+<tr><td><div>Seu sexo</td><td><select name="sexo" id="sexo">
+		<option value="Masculino">Masculino</option>
+		<option value="Feminino">Feminino</option>
+	     </select></div></td></tr> 
+<tr><td valign=top><div>Seus comentários</td>
+<td><textarea rows="10" cols="50" name="comentarios" id="comentarios"></textarea></div><div><input type=submit value=Enviar></div></td></tr><p><p>
+<a href='logout.php'>Deslogar</a>
+</table>
+</form>
+</body>
+</html>
